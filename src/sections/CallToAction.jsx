@@ -11,7 +11,7 @@ export function CallToAction() {
       />
 
       <div className="cta-row" style={{ justifyContent: 'center' }}>
-        <button className="primary-button" onClick={() => window.location.href = '/reflex-website/docs/'}>
+        <button className="primary-button" onClick={() => window.location.href = '/docs/'}>
           Read the Docs
         </button>
         <a

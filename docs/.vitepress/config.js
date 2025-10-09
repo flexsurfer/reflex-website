@@ -1,12 +1,9 @@
 import { defineConfig } from 'vitepress'
 
-const isGitHubActions = process.env.GITHUB_ACTIONS === 'true'
-const base = isGitHubActions ? '/reflex-website/docs/' : '/'
-
 export default defineConfig({
   title: 'Reflex',
   description: 'Reactive, functional state management for React and TypeScript',
-  base,
+  base: '/docs/',
 
   themeConfig: {
     nav: [
