@@ -6,7 +6,7 @@ export function Footer() {
         <p>A reactive, functional state management library for React and TypeScript.</p>
       </div>
       <div className="footer__links">
-        <a className="footer__link" href="/docs" rel="noreferrer">
+        <a className="footer__link" href="/reflex-website/docs/" rel="noreferrer">
           Documentation
         </a>
         <a className="footer__link" href="https://github.com/flexsurfer/reflex" target="_blank" rel="noreferrer">

@@ -27,7 +27,7 @@ export function Hero() {
           <ArrowRightIcon size={18} />
           Understand the pattern
         </a>
-        <a className="secondary-button" href="/docs/">
+        <a className="secondary-button" href="/reflex-website/docs/">
           <DocsIcon size={18} />
           Read the docs
         </a>

@@ -4,6 +4,9 @@ export default defineConfig({
   title: 'Reflex',
   description: 'A reactive state management library for React and TypeScript',
   base: '/docs/',
+  head: [
+    ['link', { rel: 'icon', href: '../favicon.ico' }]
+  ],
   
   themeConfig: {
     nav: [
