@@ -5,9 +5,9 @@ import react from '@vitejs/plugin-react'
 const repoName = process.env.GITHUB_REPOSITORY?.split('/')?.[1]
 const isGitHubActions = process.env.GITHUB_ACTIONS === 'true'
 
-// When building on GitHub Actions for Pages, serve under "/<repo>/"
+// When building on GitHub Actions for Pages, serve under "/reflex-website/"
 // Locally and in non-GitHub environments, default to root "/"
-const basePath = process.env.VITE_BASE ?? (isGitHubActions && repoName ? `/${repoName}/` : '/')
+const basePath = process.env.VITE_BASE ?? (isGitHubActions ? '/reflex-website/' : '/')
 
 export default defineConfig({
   plugins: [react()],

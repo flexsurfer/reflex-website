@@ -6,7 +6,7 @@ export function Hero() {
       <div className="section--tight">
         <span className="section__eyebrow">State management for ambitious teams</span>
         <div className="hero__headline">
-          <img className="hero__headline-logo" src="/reflex_logo_trimmed.png" alt="Reflex logo" />
+          <img className="hero__headline-logo" src={`${import.meta.env.BASE_URL}reflex_logo_trimmed.png`} alt="Reflex logo" />
           <h1 className="hero__headline-text">The wait is over. Re-frame’s power, now in JavaScript.</h1>
         </div>
         <p className="hero__copy">
