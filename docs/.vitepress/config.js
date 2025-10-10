@@ -9,10 +9,10 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Quick Start', link: '/quick-start' },
+      { text: 'Testing', link: '/testing' },
+      { text: 'Shared Code', link: '/shared-code' },
       { text: 'API Reference', link: '/api-reference' },
-      { text: 'Best Practices', link: '/best-practices' },
-      { text: 'FAQ', link: '/faq' },
-      { text: 'GitHub', link: 'https://github.com/flexsurfer/reflex' }
+      { text: 'Best Practices', link: '/best-practices' }
     ],
 
     sidebar: [
@@ -20,14 +20,15 @@ export default defineConfig({
         text: 'Getting Started',
         items: [
           { text: 'Quick Start', link: '/quick-start' },
+          { text: 'Testing', link: '/testing' },
+          { text: 'Shared Code', link: '/shared-code' },
           { text: 'Best Practices', link: '/best-practices' }
         ]
       },
       {
         text: 'Reference',
         items: [
-          { text: 'API Reference', link: '/api-reference' },
-          { text: 'FAQ', link: '/faq' }
+          { text: 'API Reference', link: '/api-reference' }
         ]
       }
     ],

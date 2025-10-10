@@ -73,6 +73,8 @@ function Counter() {
 ## Documentation Sections
 
 - **[Quick Start](./quick-start.md)**: Step-by-step installation and setup guide with real-world TodoMVC example
+- **[Testing](./testing.md)**: Why Reflex is so effective for testing - pure events enable predictable, replayable tests
+- **[Shared Code](./shared-code.md)**: Cross-platform development with effects - up to 90%+ code reuse across platforms
 - **[Best Practices](./best-practices.md)**: Recommended patterns and conventions for scalable apps
 - **[API Reference](./api-reference.md)**: Complete API documentation with TypeScript types
 - **[FAQ](./faq.md)**: Common questions and troubleshooting
