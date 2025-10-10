@@ -22,7 +22,8 @@ export default defineConfig({
           { text: 'Quick Start', link: '/quick-start' },
           { text: 'Testing', link: '/testing' },
           { text: 'Shared Code', link: '/shared-code' },
-          { text: 'Best Practices', link: '/best-practices' }
+          { text: 'Best Practices', link: '/best-practices' },
+          { text: 'Re-frame Comparison', link: '/re-frame-comparison' },
         ]
       },
       {
