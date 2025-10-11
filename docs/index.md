@@ -73,6 +73,7 @@ function Counter() {
 ## Documentation Sections
 
 - **[Quick Start](./quick-start.md)**: Step-by-step installation and setup guide with real-world TodoMVC example
+- **[Reflex vs Redux/Zustand](./redux-zustand-comparison.md)**: Comprehensive comparison with popular state management solutions
 - **[Reflex vs re-frame](./re-frame-comparison.md)**: Key architectural differences and migration guide from re-frame
 - **[Testing](./testing.md)**: Why Reflex is so effective for testing - pure events enable predictable, replayable tests
 - **[Shared Code](./shared-code.md)**: Cross-platform development with effects - up to 90%+ code reuse across platforms

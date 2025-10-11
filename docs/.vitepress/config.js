@@ -9,10 +9,10 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Quick Start', link: '/quick-start' },
+      { text: 'Best Practices', link: '/best-practices' },
       { text: 'Testing', link: '/testing' },
       { text: 'Shared Code', link: '/shared-code' },
-      { text: 'API Reference', link: '/api-reference' },
-      { text: 'Best Practices', link: '/best-practices' }
+      { text: 'API Reference', link: '/api-reference' }
     ],
 
     sidebar: [
@@ -23,6 +23,7 @@ export default defineConfig({
           { text: 'Testing', link: '/testing' },
           { text: 'Shared Code', link: '/shared-code' },
           { text: 'Best Practices', link: '/best-practices' },
+          { text: 'Redux/Zustand Comparison', link: '/redux-zustand-comparison' },
           { text: 'Re-frame Comparison', link: '/re-frame-comparison' },
         ]
       },

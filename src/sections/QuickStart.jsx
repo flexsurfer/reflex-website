@@ -8,9 +8,14 @@ const steps = [
     copy: 'Core runtime plus optional devtools for deep inspection.',
   },
   {
-    title: 'Wire your first feature',
-    code: "import { initAppDb, regEvent, regSub } from '@flexsurfer/reflex'\n\ninitAppDb({ counter: 0 })\nregEvent('increment', ({ draftDb }) => {\n  draftDb.counter += 1\n})\nregSub('counter')\n\n// In your React component\nimport { useSubscription, dispatch } from '@flexsurfer/reflex'\n\nfunction Counter() {\n  const count = useSubscription([\"counter\"])\n  return (\n    <div>\n      <p>Count: {count}</p>\n      <button onClick={() => dispatch([\"increment\"])}>\n        Increment\n      </button>\n    </div>\n  )\n}",
-    copy: 'Create events and queries once, then consume them from React or React Native.',
+    title: 'Initialize your app',
+    code: "import { initAppDb, regEvent, regSub } from '@flexsurfer/reflex'\n\ninitAppDb({ counter: 0 })\nregEvent('increment', ({ draftDb }) => {\n  draftDb.counter += 1\n})\nregSub('counter')",
+    copy: 'Bootstrap your app database, register events, and create subscriptions.',
+  },
+  {
+    title: 'In your React component',
+    code: "import { useSubscription, dispatch } from '@flexsurfer/reflex'\n\nfunction Counter() {\n  const count = useSubscription(['counter'])\n  return (\n    <div>\n      <p>Count: {count}</p>\n      <button onClick={() => dispatch(['increment'])}>\n        Increment\n      </button>\n    </div>\n  )\n}",
+    copy: 'Consume your events and subscriptions from React components.',
   },
   {
     title: 'Enable tracing & devtools [Optional]',
