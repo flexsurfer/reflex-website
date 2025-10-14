@@ -197,6 +197,18 @@ Let Immer do the heavy lifting. You only need to be careful when working with ob
 
 ## Events
 
+> ⚠️ **Important**: When passing data from `draftDb` to effects, always use the `current()` function to get the current (final) value. The `draftDb` object is an Immer draft proxy that will be finalized after the event completes, so passing `draftDb` data directly to effects will result in the empty proxy object.
+>
+> ```typescript
+> import { regEvent, current } from '@flexsurfer/reflex';
+>
+> regEvent('answer-question', ({ draftDb }, questionIndex, answerIndex) => {
+>   draftDb.userAnswers[questionIndex] = answerIndex
+>   // Use current() to pass the final value to the effect
+>   return [['local-storage-set', { key: 'userAnswers', value: current(draftDb.userAnswers) }]]
+> })
+> ```
+
 ### Use Descriptive Event Names
 
 Use namespaced, descriptive event names:
