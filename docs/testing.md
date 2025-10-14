@@ -211,18 +211,6 @@ clearSubs()
 clearGlobalInterceptors()
 ```
 
-### Debug Control
-
-```typescript
-import { setDebugEnabled, isDebugEnabled } from '@flexsurfer/reflex'
-
-// Disable debug logging in tests
-setDebugEnabled(false)
-
-// Check debug status
-expect(isDebugEnabled()).toBe(false)
-```
-
 ### Test Setup Pattern
 
 ```typescript
@@ -230,7 +218,6 @@ import {
   initAppDb,
   clearHandlers,
   clearGlobalInterceptors,
-  setDebugEnabled,
   dispatch,
   getAppDb
 } from '@flexsurfer/reflex'

@@ -604,25 +604,6 @@ function enableTracePrint(): void
 
 Enables default console logging for trace data.
 
-### setDebugEnabled
-
-```typescript
-function setDebugEnabled(enabled: boolean): void
-```
-
-Enables or disables debug mode, which primarily controls console warnings and hot reload functionality.
-
-**Parameters:**
-- `enabled`: Whether to enable debug mode
-
-### isDebugEnabled
-
-```typescript
-function isDebugEnabled(): boolean
-```
-
-Returns whether debug mode is currently enabled.
-
 ## Hot Reloading
 
 Development-time utilities that enable seamless code updates without losing application state, improving the development experience.
