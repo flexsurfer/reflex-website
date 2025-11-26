@@ -62,7 +62,7 @@ npx reflex-devtools --port 3000 --host 0.0.0.0
 
 ### 3. Open the Dashboard
 
-Navigate to [http://localhost:4000](http://localhost:4000) in your browser to see the DevTools dashboard.
+Navigate to `http://localhost:4000` in your browser to see the DevTools dashboard.
 
 ---
 
