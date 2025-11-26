@@ -13,7 +13,9 @@ Reflex unifies a single store, an event pipeline, reactive subscriptions, and de
 - **Predictable events**: All state transitions run through pure events and interceptors, giving you replayable, inspectable updates. Business logic stays pure; effects are explicit. That makes behavior auditable and testable at scale.
 - **Composable architecture**: Grow features by composing events, subscriptions, and effects. Patterns stay local, predictable and scale gracefully as complexity rises.
 - **Reactive subscriptions**: Express derived data declaratively. React components re-render only when their data changes.
+- **Real-time DevTools**: Powerful debugging toolkit with state inspection, event tracing, and performance profiling.
 - **AI Friendly**: Reviewing AI-generated changes is easier because all logic is expressed through pure, isolated functions, making each change understandable, verifiable, and deterministic.
+- **AI-Powered Debugging**: Debug with AI assistance using DevTools MCP. Inspect execution traces, query app state, and dispatch events directly from your IDE for faster debugging and testing.
 
 ## How it works
 
@@ -72,17 +74,18 @@ function Counter() {
 
 ## Documentation Sections
 
+- **[API Reference](./api-reference.md)**: Complete API documentation with TypeScript types
 - **[Quick Start](./quick-start.md)**: Step-by-step installation and setup guide with real-world TodoMVC example
-- **[Reflex vs Redux/Zustand](./redux-zustand-comparison.md)**: Comprehensive comparison with popular state management solutions
-- **[Reflex vs re-frame](./re-frame-comparison.md)**: Key architectural differences and migration guide from re-frame
+- **[Best Practices](./best-practices.md)**: Recommended patterns and conventions for scalable apps
+- **[AI-Powered Debugging](./ai-debugging.md)**: Debug with AI assistance using DevTools MCP - inspect traces, query state, and dispatch events
+- **[DevTools](./devtools.md)**: Real-time debugging and inspection with state inspection, event tracing, and performance profiling
 - **[Testing](./testing.md)**: Why Reflex is so effective for testing - pure events enable predictable, replayable tests
 - **[Shared Code](./shared-code.md)**: Cross-platform development with effects - up to 90%+ code reuse across platforms
-- **[Best Practices](./best-practices.md)**: Recommended patterns and conventions for scalable apps
-- **[API Reference](./api-reference.md)**: Complete API documentation with TypeScript types
+- **[Reflex vs Redux/Zustand](./redux-zustand-comparison.md)**: Comprehensive comparison with popular state management solutions
+- **[Reflex vs re-frame](./re-frame-comparison.md)**: Key architectural differences and migration guide from re-frame
 - **[FAQ](./faq.md)**: Common questions and troubleshooting
 
 ## Need Help?
 
 - [GitHub Repository](https://github.com/flexsurfer/reflex)
 - [Issues & Discussions](https://github.com/flexsurfer/reflex/issues)
-

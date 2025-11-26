@@ -108,3 +108,29 @@ export const DocsIcon = createIcon(
   </>
 )
 
+export const DebugIcon = createIcon(
+  <>
+    <rect
+      x="8"
+      y="6"
+      width="8"
+      height="12"
+      rx="4"
+      stroke="currentColor"
+      strokeWidth="1.5"
+    />
+    <path
+      d="M4 9h4m-4 3h4m-4 3h4m8-6h4m-4 3h4m-4 3h4"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+    />
+    <path
+      d="m10 6-2-3m6 3 2-3"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+    />
+  </>
+)
+

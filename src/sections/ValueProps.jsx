@@ -1,4 +1,4 @@
-import { PuzzleIcon, LayersIcon, LightningIcon, AIIcon } from '../components/icons.jsx'
+import { PuzzleIcon, LayersIcon, LightningIcon, AIIcon, DebugIcon } from '../components/icons.jsx'
 import { SectionHeader } from '../components/SectionHeader.jsx'
 
 const values = [
@@ -22,6 +22,11 @@ const values = [
     title: 'AI Friendly',
     copy: 'Reviewing AI-generated changes is easier because all logic is expressed through pure, isolated functions, making each change understandable, verifiable, and deterministic.',
   },
+  {
+    icon: <DebugIcon size={22} />,
+    title: 'AI-Powered Debugging',
+    copy: 'Debug with AI assistance using DevTools MCP. Inspect execution traces, query app state, and dispatch events directly from your IDE for faster debugging and testing.',
+  },
 ]
 export function ValueProps() {
   return (
@@ -35,8 +40,10 @@ export function ValueProps() {
       <div className="value-grid">
         {values.map(({ icon, title, copy }) => (
           <article key={title} className="value-card">
-            <div className="value-card__icon">{icon}</div>
-            <h3 className="value-card__title">{title}</h3>
+            <h3 className="value-card__title">
+              <span className="value-card__icon">{icon}</span>
+              {title}
+            </h3>
             <p className="value-card__copy">{copy}</p>
           </article>
         ))}

@@ -20,9 +20,11 @@ export default defineConfig({
         text: 'Getting Started',
         items: [
           { text: 'Quick Start', link: '/quick-start' },
+          { text: 'Best Practices', link: '/best-practices' },
+          { text: 'DevTools', link: '/devtools' },
+          { text: 'AI Debugging', link: '/ai-debugging' },
           { text: 'Testing', link: '/testing' },
           { text: 'Shared Code', link: '/shared-code' },
-          { text: 'Best Practices', link: '/best-practices' },
           { text: 'Redux/Zustand Comparison', link: '/redux-zustand-comparison' },
           { text: 'Re-frame Comparison', link: '/re-frame-comparison' },
         ]
