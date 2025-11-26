@@ -281,8 +281,8 @@ Create subscriptions that derive data from other subscriptions:
 
 ```typescript
 // Root subscriptions
-regSub('todos/all')
-regSub('todos/filter')
+regSub('todos/all', 'todos')
+regSub('todos/filter', 'filter')
 
 // Derived subscription
 regSub('todos/filtered', (todos, filter) => {

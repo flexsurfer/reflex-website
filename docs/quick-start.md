@@ -218,8 +218,10 @@ import { SUB_IDS } from './sub-ids'
 import type { Todos, Showing } from './db'
 
 // Root subscriptions (directly from app state)
-regSub(SUB_IDS.TODOS)  // Returns Todo[]
-regSub(SUB_IDS.SHOWING)  // Returns 'all' | 'active' | 'done'
+// First parameter: subscription ID (what you'll reference in components)
+// Second parameter: field name in app database
+regSub(SUB_IDS.TODOS, 'todos')  // Returns Todo[]
+regSub(SUB_IDS.SHOWING, 'showing')  // Returns 'all' | 'active' | 'done'
 
 // Computed subscriptions (derived data)
 regSub(SUB_IDS.VISIBLE_TODOS, (todos: Todos, showing: Showing) => {

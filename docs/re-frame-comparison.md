@@ -33,7 +33,7 @@ regEvent('increment', ({ draftDb }) => {
 
 **Reflex**: Database is not reactive by default. Root subscriptions must be explicitly registered:
 ```typescript
-regSub('counter')
+regSub('counter', 'counter')
 ```
 
 ## Key Differences Explained
@@ -54,10 +54,10 @@ regSub('counter')
     (filter #(= (:type %) filter-type) (:items db))))
 ```
 
-**Reflex**: Subscriptions don't have direct db access. Root subscriptions must be registered with an ID matching the db key:
+**Reflex**: Subscriptions don't have direct db access. Root subscriptions must be registered:
 ```typescript
-// Root subscription - ID must match db key
-regSub('counter')
+// Root subscription - ID matches db key
+regSub('counter', 'counter')
 
 // Derived subscriptions can depend on other subscriptions
 regSub('double-counter', 
@@ -110,7 +110,7 @@ regEvent('fetch-data', ({ draftDb }, id) => {
    ```
    ```typescript
    // Reflex - explicit
-   regSub('counter')
+   regSub('counter', 'counter')
    ```
 
 3. **Move effects from `:fx` to return value**:
@@ -138,7 +138,7 @@ regEvent('fetch-data', ({ draftDb }, id) => {
 ```typescript
 regEvent('inc', ({ draftDb }) => { draftDb.counter += 1 })
 regEvent('dec', ({ draftDb }) => { draftDb.counter -= 1 })
-regSub('counter')
+regSub('counter', 'counter')
 ```
 
 ### Async Data Fetching

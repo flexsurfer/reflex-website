@@ -215,24 +215,32 @@ Declarative queries that derive and reactively compute data from the application
 ### regSub
 
 ```typescript
-function regSub<R>(id: Id, computeFn?: (...values: any[]) => R, depsFn?: (...params: any[]) => SubVector[]): void
+function regSub<R>(id: Id, computeFn?: ((...values: any[]) => R) | string, depsFn?: (...params: any[]) => SubVector[]): void
 ```
 
 Registers a subscription that creates reactive queries against the application state.
 
 **Parameters:**
 - `id`: Unique identifier for the subscription
-- `computeFn` (optional): Function that computes the subscription value
+- `computeFn` (optional): Function that computes the subscription value, or a string field name for direct app database access (root subscriptions)
 - `depsFn` (optional): Function that returns dependency subscription vectors
+
+**String-based Subscriptions:**
+
+When `computeFn` is provided as a string, it enables direct field access to the app database. This is the recommended approach for root subscriptions as it provides a clear, explicit way to access top-level fields from your database. The string should match a top-level key in your app database.
 
 **Examples:**
 ```typescript
 import { regSub } from '@flexsurfer/reflex';
 
-// Root subscription (direct property access) 
-// id should match key in Database
-regSub('user');
-regSub('todos');
+// Recommended: String-based root subscriptions (explicit and clear)
+regSub('user', 'user');
+regSub('todos', 'todos');
+regSub('userEmail', 'userEmail');
+
+// Alternative: Simple root subscriptions (id only) - also valid
+regSub('counter');
+regSub('settings');
 
 // Computed subscription with dependencies
 regSub('user-name', (user) => user.name, () => [['user']]);
