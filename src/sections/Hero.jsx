@@ -7,10 +7,10 @@ export function Hero() {
         <span className="section__eyebrow">State management for ambitious teams</span>
         <div className="hero__headline">
           <img className="hero__headline-logo" src={`${import.meta.env.BASE_URL}reflex_logo_trimmed.png`} alt="Reflex logo" />
-          <h1 className="hero__headline-text">The wait is over. Re-frame’s power, now in JavaScript.</h1>
+          <h1 className="hero__headline-text">The Architecture for Complex React & React Native Apps.</h1>
         </div>
         <p className="hero__copy">
-        In 2014, re-frame set a new standard for state management: events, effects, subscriptions, and architectural clarity. For years, JavaScript developers tried to recreate it with Redux, Immutable.js, and endless middleware - but never quite got there. Now the day has come. Reflex brings the full strength of a battle-tested architecture to React and TypeScript - complete, cohesive, and ready for real-world apps.
+        Stop fighting with state management libraries that don't scale. Reflex brings the battle-tested re-frame architecture to JavaScript and TypeScript, providing a complete, cohesive system for predictable state, isolated side effects, and reactive data flow. Built for teams that need predictability, robust debugging, and architectural clarity in their most ambitious applications.
         </p>
       </div>
 
