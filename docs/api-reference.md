@@ -215,7 +215,12 @@ Declarative queries that derive and reactively compute data from the application
 ### regSub
 
 ```typescript
-function regSub<R>(id: Id, computeFn?: ((...values: any[]) => R) | string, depsFn?: (...params: any[]) => SubVector[]): void
+function regSub<R>(
+  id: Id,
+  computeFn?: ((...values: any[]) => R) | string,
+  depsFn?: (...params: any[]) => SubVector[],
+  config?: SubConfig<R>
+): void
 ```
 
 Registers a subscription that creates reactive queries against the application state.
@@ -224,10 +229,15 @@ Registers a subscription that creates reactive queries against the application s
 - `id`: Unique identifier for the subscription
 - `computeFn` (optional): Function that computes the subscription value, or a string field name for direct app database access (root subscriptions)
 - `depsFn` (optional): Function that returns dependency subscription vectors
+- `config` (optional): Subscription configuration object with custom equality check
 
 **String-based Subscriptions:**
 
 When `computeFn` is provided as a string, it enables direct field access to the app database. This is the recommended approach for root subscriptions as it provides a clear, explicit way to access top-level fields from your database. The string should match a top-level key in your app database.
+
+**Custom Equality Checks:**
+
+Subscriptions use deep equality by default to determine if their value has changed. You can provide a custom equality function for performance optimization or specific comparison needs using the `SubConfig` interface.
 
 **Examples:**
 ```typescript
@@ -262,6 +272,24 @@ regSub('user-display-name',
   (name, prefix) => `${prefix}: ${name}`,
   () => [['user-name'], ['display-prefix']]
 );
+
+// Subscription with custom equality check for performance
+regSub('large-dataset',
+  (data) => data, // expensive computation
+  () => [['raw-dataset']],
+  { equalityCheck: (a, b) => a === b } // reference equality for large objects
+);
+
+// Subscription using configuration object
+regSub('user-profile',
+  (user, preferences) => ({
+    ...user,
+    theme: preferences.theme,
+    language: preferences.language
+  }),
+  () => [['user'], ['user-preferences']],
+  { equalityCheck: (a, b) => a?.id === b?.id } // only update if user ID changes
+);
 ```
 
 ### useSubscription
@@ -295,6 +323,40 @@ function UserProfile() {
   return <div>{name}</div>;
 }
 ```
+### setGlobalEqualityCheck
+
+```typescript
+function setGlobalEqualityCheck(equalityCheck: EqualityCheckFn): void
+```
+
+Sets a global default equality check function for all subscriptions that don't specify their own equality check. This provides a convenient way to customize equality behavior across your entire application.
+
+**Parameters:**
+- `equalityCheck`: Function that compares two values and returns true if they are considered equal
+
+**Examples:**
+```typescript
+import { setGlobalEqualityCheck } from '@flexsurfer/reflex';
+
+// Use reference equality globally for better performance
+setGlobalEqualityCheck((a, b) => a === b);
+
+// Custom equality that ignores certain properties
+setGlobalEqualityCheck((a, b) => {
+  if (typeof a === 'object' && typeof b === 'object') {
+    // Ignore timestamp properties in comparisons
+    const { timestamp: _, ...aClean } = a;
+    const { timestamp: __, ...bClean } = b;
+    return JSON.stringify(aClean) === JSON.stringify(bClean);
+  }
+  return a === b;
+});
+```
+
+**Notes:**
+- Individual subscriptions can still override the global equality check by providing their own `equalityCheck` in the `SubConfig`
+- The global equality check affects all existing and future computed subscriptions (except root subscriptions) unless they specify their own check
+- By default, Reflex uses deep equality (`fast-deep-equal`)
 
 ### getSubscriptionValue
 
@@ -845,6 +907,11 @@ type ErrorHandler = (
 ```typescript
 type SubHandler = (...values: any[]) => any
 type SubDepsHandler = (...params: any[]) => SubVector[]
+type EqualityCheckFn = (a: any, b: any) => boolean
+
+interface SubConfig {
+  equalityCheck?: EqualityCheckFn
+}
 ```
 
 ### Effect/Co-effect Types

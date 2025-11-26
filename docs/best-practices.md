@@ -297,6 +297,10 @@ regSub('todos/filtered', (todos, filter) => {
 }, () => [['todos/all'], ['todos/filter']])
 ```
 
+### Use Custom Equality Checks for Performance
+
+By default, subscriptions use deep equality to detect changes. For performance-critical subscriptions with large objects or frequent updates, consider custom equality checks
+
 ### Avoid Heavy Computations in Subscriptions
 
 Keep subscriptions lightweight. Move expensive operations to events:
