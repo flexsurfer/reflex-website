@@ -17,7 +17,7 @@ const tabs = {
   },
   subscriptions: {
     label: 'Subscriptions',
-    code: "// subs.ts\nimport { regSub } from '@flexsurfer/reflex'\nimport { SUB_IDS } from './sub-ids'\nimport type { Todos, Showing } from './db'\n\n// Root subscriptions (directly from app state)\nregSub(SUB_IDS.TODOS)  // Returns Todo[]\nregSub(SUB_IDS.SHOWING)  // Returns 'all' | 'active' | 'done'\n\n// Computed subscriptions (derived data)\nregSub(SUB_IDS.VISIBLE_TODOS, (todos: Todos, showing: Showing) => {\n  if (!todos) return []\n  switch (showing) {\n    case 'active':\n      return todos.filter(todo => !todo.done)\n    case 'done':\n      return todos.filter(todo => todo.done)\n    default:\n      return todos\n  }\n}, () => [[SUB_IDS.TODOS], [SUB_IDS.SHOWING]])\n\nregSub(SUB_IDS.ALL_COMPLETE, (todos: Todos) => {\n  return todos.length > 0 && todos.every(todo => todo.done)\n}, () => [[SUB_IDS.TODOS]])",
+    code: "// subs.ts\nimport { regSub } from '@flexsurfer/reflex'\nimport { SUB_IDS } from './sub-ids'\nimport type { Todos, Showing } from './db'\n\n// Root subscriptions (directly from app state)\nregSub(SUB_IDS.TODOS, 'todos')  // Returns Todo[]\nregSub(SUB_IDS.SHOWING, 'showing')  // Returns 'all' | 'active' | 'done'\n\n// Computed subscriptions (derived data)\nregSub(SUB_IDS.VISIBLE_TODOS, (todos: Todos, showing: Showing) => {\n  if (!todos) return []\n  switch (showing) {\n    case 'active':\n      return todos.filter(todo => !todo.done)\n    case 'done':\n      return todos.filter(todo => todo.done)\n    default:\n      return todos\n  }\n}, () => [[SUB_IDS.TODOS], [SUB_IDS.SHOWING]])\n\nregSub(SUB_IDS.ALL_COMPLETE, (todos: Todos) => {\n  return todos.length > 0 && todos.every(todo => todo.done)\n}, () => [[SUB_IDS.TODOS]])",
   },
   view: {
     label: 'View',
