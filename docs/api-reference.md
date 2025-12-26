@@ -19,6 +19,28 @@ This page contains the complete API reference for Reflex, a reactive state manag
 
 Functions for managing Reflex's single source of truth - the application database that holds your entire application state.
 
+### enableMapSet
+
+```typescript
+function enableMapSet(): void
+```
+
+Enables Immer's support for JavaScript `Map` and `Set` objects in your application database. This function must be called **before** `initAppDb()` if you plan to use Maps or Sets in your state.
+
+**When to Use**: Call this function when your application database contains `Map` or `Set` instances, as these data structures require special handling by Immer for proper reactivity.
+
+**Example:**
+```typescript
+import { enableMapSet, initAppDb } from '@flexsurfer/reflex';
+
+// Enable Map and Set support
+enableMapSet();
+
+initAppDb({...});
+```
+
+**Note**: If you don't use Maps or Sets in your database, you don't need to call this function.
+
 ### initAppDb
 
 ```typescript
@@ -38,6 +60,31 @@ initAppDb({
   counter: 0,
   user: null,
   todos: []
+});
+```
+
+**Using Maps and Sets:**
+
+When using `Map` or `Set` objects in your database, you must first call `enableMapSet()`:
+
+```typescript
+import { enableMapSet, initAppDb } from '@flexsurfer/reflex';
+
+enableMapSet();
+
+initAppDb({
+  // Use Map for fast key-based lookups
+  users: new Map([
+    ['user1', { id: 'user1', name: 'John', email: 'john@example.com' }],
+    ['user2', { id: 'user2', name: 'Jane', email: 'jane@example.com' }]
+  ]),
+
+  // Use Set for unique collections with fast membership testing
+  activeUserIds: new Set(['user1', 'user2']),
+
+  // Regular arrays and objects work without enableMapSet
+  todos: [],
+  ui: { loading: false }
 });
 ```
 

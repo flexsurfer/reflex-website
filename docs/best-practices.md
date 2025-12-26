@@ -98,6 +98,17 @@ initAppDb({
 })
 ```
 
+**Important**: When using Maps or Sets in your Reflex application database, you must call `enableMapSet()` before initializing your database to enable Immer's support for these data structures.
+
+```typescript
+import { initAppDb, enableMapSet } from '@flexsurfer/reflex';
+
+// Enable Map and Set support for Immer
+enableMapSet();
+
+initAppDb({...})
+```
+
 ### Use Consistent Naming Conventions
 
 Establish patterns for your state structure:
