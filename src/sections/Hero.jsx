@@ -32,6 +32,15 @@ export function Hero() {
           Read the docs
         </a>
       </div>
+
+      <div className="hero__video">
+        <iframe
+          src="https://www.youtube.com/embed/xwv5SwlF4Dg"
+          title="Reflex demo"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      </div>
     </section>
   )
 }
