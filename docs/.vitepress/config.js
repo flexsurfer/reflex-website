@@ -22,6 +22,7 @@ export default defineConfig({
           { text: 'Quick Start', link: '/quick-start' },
           { text: 'Best Practices', link: '/best-practices' },
           { text: 'DevTools', link: '/devtools' },
+          { text: 'AI Coding (llms.txt)', link: '/ai-coding' },
           { text: 'AI Debugging', link: '/ai-debugging' },
           { text: 'Testing', link: '/testing' },
           { text: 'Shared Code', link: '/shared-code' },
